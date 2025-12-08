@@ -27,15 +27,10 @@
  * OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
  * IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
- * Changes from Qualcomm Innovation Center are provided under the following license:
- * Copyright (c) 2022-2024 Qualcomm Innovation Center, Inc. All rights reserved.
+ * Changes from Qualcomm Technologies, Inc. are provided under the following license:
+ * Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
  * SPDX-License-Identifier: BSD-3-Clause-Clear
  */
-
- /* Changes from Qualcomm Innovation Center are provided under the following license:
-
-Copyright (c) 2023 Qualcomm Innovation Center, Inc. All rights reserved.
-SPDX-License-Identifier: BSD-3-Clause-Clear */
 
 #include <unordered_map>
 #include <android-base/logging.h>
@@ -2357,11 +2352,11 @@ namespace thermal {
 	std::vector<std::string> cpu_sensors_tuna = {
 		"cpu-0-0-0",
 		"cpu-0-1-0",
-		"cpu-1-0-0",
-		"cpu-1-1-0",
 		"cpu-1-2-0",
 		"cpu-1-3-0",
 		"cpu-1-4-0",
+		"cpu-1-0-0",
+		"cpu-1-1-0",
 		"cpu-2-0-0",
 	};
 
@@ -3598,6 +3593,8 @@ namespace thermal {
 		{702, pineapple_common}, //Pineapple
 		{618, sun_specific}, //Sun
 		{639, sun_specific}, //Sunp
+		{705, sun_specific}, //CQ8750S
+		{706, sun_specific}, //CQ8725S
 		{537, parrot_common}, //Netrani mobile
 		{583, parrot_common}, //Netrani mobile without modem
 		{613, parrot_common}, //Netrani APQ
@@ -3608,6 +3605,7 @@ namespace thermal {
 		{663, parrot_common}, //SM7435
 		{713, parrot_common}, //Netrani APQ
 		{714, parrot_common}, //Netrani APQ
+		{715, parrot_common}, //Netrani Lite
 		{486, sensor_cfg_monaco}, // monaco
 		{517, sensor_cfg_monaco}, // monaco
 		{355, sensor_cfg_talos_common},
@@ -3645,6 +3643,10 @@ namespace thermal {
 		{608, crow_common}, //crow
 		{644, crow_common}, //crow 4G
 		{532, lemansAU_common}, //Lemans auto
+		{720, kera_common}, //Eliza-Paloma
+		{721, kera_common}, //Eliza-Paloma
+		{731, kera_common}, //Eliza IOT
+		{732, kera_common}, //Eliza IOT
 	};
 
 	const std::unordered_map<int, std::vector<struct target_therm_cfg>>
@@ -3692,6 +3694,7 @@ namespace thermal {
 		{714, parrot_specific}, //Netrani APQ
 		{339, sensor_cfg_msmnile_specific},
 		{361, sensor_cfg_msmnile_specific},
+		{715, parrot_specific}, //Netrani Lite
 		{355, sensor_cfg_talos_specific},
 		{681, tuna_specific}, //Bonito
 		{655, tuna_specific}, //Bonito
@@ -3711,6 +3714,10 @@ namespace thermal {
 		{673, seraph_specific}, //Balsam-SAR2230P
 		{608, crow_specific}, //crow
 		{644, crow_specific}, //crow
+		{720, kera_specific}, //Eliza-Paloma
+		{721, kera_specific}, //Eliza-Paloma
+		{731, kera_specific}, //Eliza IOT
+		{732, kera_specific}, //Eliza IOT
 	};
 
 	const std::unordered_multimap<int, std::pair<int, std::vector<struct target_therm_cfg>>>
@@ -3723,6 +3730,10 @@ namespace thermal {
 		{657, std::make_pair(1, volcano_profile1)},
 		{658, std::make_pair(0, volcano_common)},
 		{658, std::make_pair(1, volcano_profile1)},
+		{705, std::make_pair(0, sun_profile0)},
+		{705, std::make_pair(1, sun_profile1)},
+		{706, std::make_pair(0, sun_profile0)},
+		{706, std::make_pair(1, sun_profile1)},
 	};
 
 	const std::unordered_map<int, std::string>
